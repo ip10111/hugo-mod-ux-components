@@ -1,0 +1,18 @@
+$reading_progress_bar_container_background: #f3f3f3 !default;
+$reading_progress_bar_background: red !default;
+
+#reading-progress-bar-container {
+    background-color: $reading_progress_bar_container_background;
+    width: 100%;
+    height: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+#reading-progress-bar {
+    background-color: $reading_progress_bar_background;
+    height: 2px;
+    width: 0%;
+}
