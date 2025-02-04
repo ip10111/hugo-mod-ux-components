@@ -1,0 +1,71 @@
+$back_to_top_background: #007BFF !default;
+
+body {
+    height: 6000px; /* For demonstration purposes */
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: $back_to_top_background;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s; /* Smooth fade-in and fade-out */
+}
+
+.progress-circle {
+    transform: rotate(-90deg);
+}
+
+.progress-circle circle {
+    fill: none;
+    stroke-width: 3;
+}
+
+.progress-circle circle:first-of-type {
+    stroke: #007BFF;
+}
+
+#progress {
+    stroke: #e6e6e6; /* Background circle */
+    stroke-dasharray: 113; /* 2 * π * 18 (radius) */
+    stroke-dashoffset: 113; /* Full circle */
+    transition: stroke-dashoffset 0.25s;
+}
+
+/* Styles for the arrow */
+.arrow {
+    stroke: green;
+    stroke-width: 4;
+    fill: none;
+    transition: stroke 0.5s; /* Add transition for smooth effect */
+}
+
+@media(hover: hover) {        
+    #backToTop:hover {
+        background-color: lighten($back_to_top_background, 17%);
+        
+        & .progress-circle circle:first-of-type {
+            stroke: lighten($back_to_top_background, 17%);
+        }
+
+        & .arrow {
+            transform: translateX(3px);
+            transition: transform 0.3s ease;
+        }
+    }
+}
