@@ -5,12 +5,13 @@ Improve site's navigation with a Back to Top Button component. This component al
 
 ## Usage
 
+### Standard Back to Top Button
+
 Add scss file:
 
 ```gohtml
     (resources.Get "scss/back-to-top.scss" | resources.ToCSS )
 ```
-
 
 Add typescript file:
 
@@ -22,4 +23,24 @@ Add partial file:
 
 ```gohtml
     {{- partial "back_to_top.html" . -}}
+```
+
+### Back to Top Button with Reading Progress
+
+Add scss file:
+
+```gohtml
+    (resources.Get "scss/back-to-top-plus.scss" | resources.ToCSS )
+```
+
+Add typescript file:
+
+```gohtml
+    (resources.Get "ts/BackToTopPlus.ts" | js.Build)
+```
+
+Add partial file:
+
+```gohtml
+    {{- partial "back_to_top_plus.html" . -}}
 ```
