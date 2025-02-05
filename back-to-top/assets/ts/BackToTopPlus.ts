@@ -34,5 +34,5 @@ class BackToTopPlus {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new BackToTopPlus('backToTop', 'progress');
+    new BackToTopPlus('back-to-top-plus', 'progress');
 });

@@ -1,13 +1,8 @@
 $back_to_top_background: #007BFF !default;
 
-body {
-    height: 6000px; /* For demonstration purposes */
+#back-to-top-plus {
     padding: 0;
     margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-#backToTop {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -42,14 +37,13 @@ body {
 
 #progress {
     stroke: #e6e6e6; /* Background circle */
-    stroke-dasharray: 113; /* 2 * π * 18 (radius) */
-    stroke-dashoffset: 113; /* Full circle */
+    stroke-dasharray: 150.8; /* 2 * π * 24 (radius) */
+    stroke-dashoffset: 150.8; /* Full circle */
     transition: stroke-dashoffset 0.25s;
 }
 
 /* Styles for the arrow */
 .arrow {
-    stroke: green;
     stroke-width: 4;
     fill: none;
     transition: stroke 0.5s; /* Add transition for smooth effect */
