@@ -1,6 +1,4 @@
-$back_to_top_background: #fafafa !default;
-$back_to_top_progress: #2b2b2b !default;
-$back_to_top_progress_placeholder: #afafaf !default;
+$back_to_top_background: #007BFF !default;
 
 #back-to-top-plus {
     padding: 0;
@@ -34,11 +32,11 @@ $back_to_top_progress_placeholder: #afafaf !default;
 }
 
 .progress-circle circle:first-of-type {
-    stroke: $back_to_top_progress_placeholder;
+    stroke: #007BFF;
 }
 
 #progress {
-    stroke: $back_to_top_progress; /* Background circle */
+    stroke: #e6e6e6; /* Background circle */
     stroke-dasharray: 150.8; /* 2 * π * 24 (radius) */
     stroke-dashoffset: 150.8; /* Full circle */
     transition: stroke-dashoffset 0.25s;
