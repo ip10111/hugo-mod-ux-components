@@ -13,7 +13,7 @@ $back_to_top_progress_placeholder: #afafaf !default;
     background-color: $back_to_top_background;
     border: none;
     border-radius: 50%;
-    color: white;
+    color: $back_to_top_color;
     text-align: center;
     cursor: pointer;
     display: flex;
