@@ -6,14 +6,14 @@
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">{{ .Site.Title }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body align-items-md-center">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     {{ range .Site.Menus.main }}
                     <li class="nav-item {{ if .HasChildren }}dropdown{{ end }}">
-                        <a class="nav-link {{ if .HasChildren }}dropdown-toggle{{ end }} {{ if .IsActive }}active{{ end }}" 
+                        <a class="nav-link {{ if .HasChildren }}dropdown-toggle{{ end }} {{ if .Page.IsMenuCurrent "main" . }}active{{ end }}" 
                            href="{{ .URL }}" 
                            {{ if .HasChildren }}role="button" data-bs-toggle="dropdown" aria-expanded="false"{{ end }}>
                             {{ .Name }}
@@ -22,7 +22,7 @@
                         <ul class="dropdown-menu">
                             {{ range .Children }}
                             <li>
-                                <a class="dropdown-item {{ if .IsActive }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+                                <a class="dropdown-item {{ if .Page.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
                             </li>
                             {{ end }}
                         </ul>
