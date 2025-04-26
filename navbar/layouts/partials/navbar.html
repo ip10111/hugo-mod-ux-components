@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary py-md-0 py-3">
     <div class="container-lg">
-        <a class="navbar-brand" href="#">Offcanvas navbar</a>
+        <a class="navbar-brand" href="#">{{ .Site.Title }}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,25 +11,24 @@
             </div>
             <div class="offcanvas-body align-items-md-center">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
+                    {{ range .Site.Menus.main }}
+                    <li class="nav-item {{ if .HasChildren }}dropdown{{ end }}">
+                        <a class="nav-link {{ if .HasChildren }}dropdown-toggle{{ end }} {{ if .IsActive }}active{{ end }}" 
+                           href="{{ .URL }}" 
+                           {{ if .HasChildren }}role="button" data-bs-toggle="dropdown" aria-expanded="false"{{ end }}>
+                            {{ .Name }}
                         </a>
+                        {{ if .HasChildren }}
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            {{ range .Children }}
                             <li>
-                                <hr class="dropdown-divider">
+                                <a class="dropdown-item {{ if .IsActive }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
                             </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            {{ end }}
                         </ul>
+                        {{ end }}
                     </li>
+                    {{ end }}
                 </ul>
                 <form class="d-flex mt-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
