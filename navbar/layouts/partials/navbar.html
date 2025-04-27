@@ -13,7 +13,7 @@
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     {{ range .Site.Menus.main }}
                     <li class="nav-item {{ if .HasChildren }}dropdown{{ end }}">
-                        <a class="nav-link {{ if .HasChildren }}dropdown-toggle{{ end }} {{ if .Page.IsMenuCurrent "main" . }}active{{ end }}" 
+                        <a class="nav-link {{ if .HasChildren }}dropdown-toggle{{ end }} {{ if and .Page (or (.Page.IsMenuCurrent "main" .) (.Page.HasMenuCurrent "main" .)) }}active{{ end }}" 
                            href="{{ .URL }}" 
                            {{ if .HasChildren }}role="button" data-bs-toggle="dropdown" aria-expanded="false"{{ end }}>
                             {{ .Name }}
@@ -22,7 +22,7 @@
                         <ul class="dropdown-menu">
                             {{ range .Children }}
                             <li>
-                                <a class="dropdown-item {{ if .Page.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+                                <a class="dropdown-item {{ if and .Page (or (.Page.IsMenuCurrent "main" .) (.Page.HasMenuCurrent "main" .)) }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
                             </li>
                             {{ end }}
                         </ul>
