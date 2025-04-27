@@ -17,7 +17,7 @@ $back_to_top_background: red !default;
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 900;
+    z-index: 9999;
 }
 
 #btn-back-to-top:active {
