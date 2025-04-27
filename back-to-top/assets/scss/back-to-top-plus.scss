@@ -23,6 +23,7 @@ $back_to_top_progress_placeholder: #afafaf !default;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     opacity: 0; /* Initially hidden */
     transition: opacity 1s; /* Smooth fade-in and fade-out */
+    z-index: 9999;
 }
 
 .progress-circle {
